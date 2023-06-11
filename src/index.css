@@ -72,3 +72,7 @@ button:focus-visible {
   }
 } */
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.btn-custom{
+  @apply bg-[#03203C] text-white hover:bg-[#8C4040] hover:transition-transform hover:scale-110
+}

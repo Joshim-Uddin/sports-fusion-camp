@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
+  //TODO: update user
   const user = null;
 
   const handleSignOut = () => {};
