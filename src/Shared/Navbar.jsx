@@ -9,6 +9,26 @@ const Navbar = () => {
   const user = null;
 
   const handleSignOut = () => {};
+  const navOptions = (
+    <>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/instructors">Instructors</NavLink>
+      <NavLink to="/classes">Classes</NavLink>
+      {user ? <NavLink to="/dashboard">Dashboard</NavLink> : ""}
+      {user ? (
+        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+          <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
+        </div>
+      ) : (
+        ""
+      )}
+      {user ? (
+        <button onClick={handleSignOut}>Log Out</button>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
+    </>
+  );
   return (
     <>
       <nav className="max-[600px]:hidden flex items-center justify-between h-28 lg:px-16 px-8 bg-[#03203C] text-white">
@@ -19,28 +39,7 @@ const Navbar = () => {
             </h3>
           </Link>
         </div>
-        <div className="flex items-center gap-4 text-lg">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/alltoys">Instructors</NavLink>
-          <NavLink to="/blogs">Classes</NavLink>
-          {user ? <NavLink to="/mytoys">Dashboard</NavLink> : ""}
-          {user ? (
-            <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-              <img
-                src={user?.photoURL}
-                alt=""
-                className="w-12 h-12 rounded-full"
-              />
-            </div>
-          ) : (
-            ""
-          )}
-          {user ? (
-            <button onClick={handleSignOut}>Log Out</button>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
-        </div>
+        <div className="flex items-center gap-4 text-lg">{navOptions}</div>
       </nav>
       <div className="min-[600px]:hidden bg-[#03203C] text-white">
         <div className="flex justify-between items-center p-4">
@@ -58,27 +57,7 @@ const Navbar = () => {
               : `flex flex-col gap-2 ps-4 absolute -top-64`
           }
         >
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/alltoys">All Toys</NavLink>
-          <NavLink to="/blogs">Blogs</NavLink>
-          {user ? <NavLink to="/mytoys">My Toys</NavLink> : ""}
-          {user ? <NavLink to="/addtoy">Add a Toy</NavLink> : ""}
-          {user ? (
-            <div className="tooltip tooltip-right" data-tip={user.displayName}>
-              <img
-                src={user?.photoURL}
-                alt=""
-                className="w-12 h-12 rounded-full"
-              />
-            </div>
-          ) : (
-            ""
-          )}
-          {user ? (
-            <button onClick={handleSignOut}>Log Out</button>
-          ) : (
-            <Link to="/login">Login</Link>
-          )}
+          {navOptions}
         </div>
       </div>
     </>

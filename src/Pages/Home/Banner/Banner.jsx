@@ -9,13 +9,15 @@ import imgThree from "./../../../assets/3.jpg";
 import imgFour from "./../../../assets/4.jpg";
 import imgFive from "./../../../assets/5.jpg";
 import { Link } from "react-router-dom";
+import Typewriter from "react-ts-typewriter";
 
 const Banner = () => {
   return (
     <div className="md:flex justify-center items-center w-10/12 gap-5 mx-auto my-5">
       <div className="md:w-1/2 md:me-8">
         <h2 className="text-4xl font-semibold">
-          Welcome <br /> Sports Fushion Summmer Camp
+          <Typewriter text="Welcome" loop={true} speed={600} /> <br /> Sports
+          Fushion Summmer Camp
         </h2>
         <p className="my-4 text-justify">
           A thrilling and dynamic sports experience that combines a variety of
