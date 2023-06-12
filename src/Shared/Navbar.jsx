@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
-  //TODO: update user
-  const user = null;
+  const { user, logout } = useContext(AuthContext);
 
-  const handleSignOut = () => {};
+  const handleSignOut = () => {
+    logout()
+      .then((res) => res)
+      .catch((err) => err);
+  };
   const navOptions = (
     <>
       <NavLink to="/">Home</NavLink>

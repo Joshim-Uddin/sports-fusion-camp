@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-//import "./Login.css";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -12,7 +11,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { FaEye } from "react-icons/fa";
-//import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -36,11 +34,10 @@ const Login = () => {
     if (validateCaptcha(data.captcha) == true) {
       login(email, password)
         .then((res) => {
-          console.log("login successful");
           const currentUser = res.user;
           navigate(from, { replace: true });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => alert(err));
     } else {
       return setError(true);
     }
@@ -48,8 +45,8 @@ const Login = () => {
 
   return (
     <div className="loginForm">
-      <div className="hero px-8">
-        <div className="hero-content w-5/12 shadow-2xl shadow-slate-600 flex ">
+      <div className="hero md:px-8">
+        <div className="hero-content md:w-5/12 shadow-2xl shadow-slate-600 flex ">
           <div className="card min-h-screen flex-shrink-0 w-full bg-white bg-blend-overlay pb-5">
             <h1 className="text-3xl font-bold text-center pt-3 mb-0">Login</h1>
             <form className="card-body" onSubmit={handleSubmit(getFormData)}>
@@ -75,8 +72,6 @@ const Login = () => {
                   type={show ? `text` : `password`}
                   {...register("password", {
                     required: true,
-                    pattern:
-                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
                   })}
                   placeholder="Enter your password"
                   className="input input-bordered"
