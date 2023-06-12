@@ -7,17 +7,11 @@ const Main = () => {
   const location = useLocation();
   return (
     <>
-      {location.pathname === "/login" || location.pathname === "/signup" ? (
-        ""
-      ) : (
-        <Navbar />
-      )}
+      <Navbar />
+
       <Outlet />
-      {location.pathname === "/login" || location.pathname === "/signup" ? (
-        ""
-      ) : (
-        <Footer />
-      )}
+
+      <Footer />
     </>
   );
 };
