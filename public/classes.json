@@ -169,19 +169,6 @@
         "seats": 12
     },
     {
-        "name": "Dance Class",
-        "instructor": "Emma Wilson",
-        "students": 12,
-        "duration": "1 hour",
-        "rating": 4.3,
-        "images": [
-            "dance1.jpg",
-            "dance2.jpg"
-        ],
-        "enrollmentFee": 50,
-        "seats": 15
-    },
-    {
         "name": "Yoga for Kids",
         "instructor": "James Anderson",
         "students": 10,
@@ -219,19 +206,6 @@
         ],
         "enrollmentFee": 55,
         "seats": 10
-    },
-    {
-        "name": "Ultimate Frisbee",
-        "instructor": "Lily Baker",
-        "students": 12,
-        "duration": "1.5 hours",
-        "rating": 4.8,
-        "images": [
-            "frisbee1.jpg",
-            "frisbee2.jpg"
-        ],
-        "enrollmentFee": 60,
-        "seats": 15
     },
     {
         "name": "Climbing Techniques",
