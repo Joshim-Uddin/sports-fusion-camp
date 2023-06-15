@@ -28,6 +28,17 @@ const SignUp = () => {
       signUp(email, password)
         .then((res) => {
           const currentUser = res.user;
+          const savedUser = {
+            name: name,
+            email: email,
+          };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          });
           updateProfile(currentUser, { displayName: name, photoURL: photoUrl })
             .then(() =>
               Swal.fire({
@@ -65,8 +76,8 @@ const SignUp = () => {
                   placeholder="Type name here"
                   className="input input-bordered"
                 />
-                {errors.name && (
-                  <p className="text-red-600">{errors.name?.message}</p>
+                {errors.name === "required" && (
+                  <p className="text-red-600">Name is Required</p>
                 )}
               </div>
               <div className="form-control">
@@ -79,8 +90,8 @@ const SignUp = () => {
                   placeholder="Type here"
                   className="input input-bordered"
                 />
-                {errors.email && (
-                  <p className="text-red-600">{errors.email?.message}</p>
+                {errors.email === "required" && (
+                  <p className="text-red-600">Email is Required</p>
                 )}
               </div>
               <div className="form-control relative">
@@ -116,16 +127,15 @@ const SignUp = () => {
                   type="password"
                   {...register("confirm", {
                     required: true,
-                    pattern: "^[a-fA-F0-9]{6}$",
+                    pattern:
+                      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
                   })}
                   placeholder="Retype your password"
                   className="input input-bordered"
                 />
-                {(error && (
-                  <p className="text-red-600">Password doesn&apos;t match</p>
-                )) ||
-                  (errors.confirm?.type == "pattern" && (
-                    <p>{errors.confirm?.message}</p>
+                {error ||
+                  (errors.confirm?.type === "pattern" && (
+                    <p className="text-red-600">Password doesn&apos;t match</p>
                   ))}
               </div>
               <div className="form-control">

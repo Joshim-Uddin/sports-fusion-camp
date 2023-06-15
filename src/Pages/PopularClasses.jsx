@@ -1,7 +1,7 @@
 import React from "react";
 
-const Classes = () => {
+const PopularClasses = () => {
   return <div>This is classes</div>;
 };
 
-export default Classes;
+export default PopularClasses;

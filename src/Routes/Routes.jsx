@@ -4,10 +4,12 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login";
 import Instructors from "../Pages/Instructors";
-import Classes from "../Pages/Classes";
 import Dashboard from "../Layout/Dashboard";
 import SignUp from "../Pages/SignUp";
 import Error from "../Pages/Error";
+import PopularClasses from "../Pages/PopularClasses";
+import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +26,8 @@ const router = createBrowserRouter([
         element: <Instructors />,
       },
       {
-        path: "/classes",
-        element: <Classes />,
+        path: "/popularclass",
+        element: <PopularClasses />,
       },
       {
         path: "/login",
@@ -38,8 +40,18 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Dashboard />,
+    children: [
+      {
+        path: "classes",
+        element: <ManageClasses />,
+      },
+      {
+        path: "users",
+        element: <ManageUsers />,
+      },
+    ],
   },
 ]);
 const Routes = () => {
