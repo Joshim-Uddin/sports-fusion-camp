@@ -74,9 +74,9 @@ const Dashboard = () => {
         </label>
         <Outlet />
       </div>
-      <div className="drawer-side w-1/2">
+      <div className="drawer-side w-1/3">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-indigo-400 text-white flex flex-col gap-2">
+        <ul className="menu p-4 w-48 h-full bg-indigo-400 text-white flex flex-col gap-2">
           {/* Sidebar content here */}
           {options}
           <div className="divider bg-white h-[2px] md:w-full w-/3/4"></div>

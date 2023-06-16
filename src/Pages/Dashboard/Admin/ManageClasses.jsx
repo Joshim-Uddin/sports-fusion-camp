@@ -9,6 +9,9 @@ const ManageClasses = () => {
   }, []);
   return (
     <div className="overflow-x-auto">
+      <h2 className="uppercase text-2xl font-semibold text-center mb-4">
+        Manage Classes
+      </h2>
       <table className="table">
         {/* head */}
         <thead>
@@ -16,9 +19,13 @@ const ManageClasses = () => {
             <th>#</th>
             <th>Preview</th>
             <th>Class Name</th>
-            <th>Enrolled Students</th>
+            <th>Instructor Name</th>
+            <th>Instructor Email</th>
+            <th>Seats</th>
+            <th>Price</th>
             <th>Status</th>
-            <th>Feedback</th>
+            <th></th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -46,14 +53,15 @@ const ManageClasses = () => {
               <td>{myClass.email}</td>
               <td>{myClass.seats}</td>
               <td>{myClass.price}</td>
+              <td>{myClass.status}</td>
               <td>
-                <button className="btn btn-ghost btn-xs">
-                  {myClass.status}
-                </button>
+                <button className="btn btn-custom">Approve</button>
               </td>
-              <td>{myClass.feedback ? myClass.feedback : ""}</td>
               <td>
-                <button className="btn btn-custom">Update</button>
+                <button className="btn btn-custom">Deny</button>
+              </td>
+              <td>
+                <button className="btn btn-custom">Feedback</button>
               </td>
             </tr>
           ))}
