@@ -6,7 +6,17 @@ const ManageClasses = () => {
     fetch("http://localhost:5000/classes")
       .then((res) => res.json())
       .then((data) => setClasses(data));
-  }, []);
+  }, [classes]);
+  const handleApprove = (id) => {
+    const status = { status: "approved" };
+    fetch(`http://localhost:5000/classes/${id}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(status),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div className="overflow-x-auto">
       <h2 className="uppercase text-2xl font-semibold text-center mb-4">
@@ -55,10 +65,25 @@ const ManageClasses = () => {
               <td>{myClass.price}</td>
               <td>{myClass.status}</td>
               <td>
-                <button className="btn btn-custom">Approve</button>
+                <button
+                  onClick={() => handleApprove(myClass._id)}
+                  className="btn btn-custom"
+                  disabled={
+                    myClass.status === "approved" || myClass.status === "denied"
+                  }
+                >
+                  Approve
+                </button>
               </td>
               <td>
-                <button className="btn btn-custom">Deny</button>
+                <button
+                  className="btn btn-custom"
+                  disabled={
+                    myClass.status === "approved" || myClass.status === "denied"
+                  }
+                >
+                  Deny
+                </button>
               </td>
               <td>
                 <button className="btn btn-custom">Feedback</button>
