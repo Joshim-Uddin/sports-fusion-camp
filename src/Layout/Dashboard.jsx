@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 
+//TODO: private route
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const [role, setRole] = useState("");
@@ -62,23 +63,23 @@ const Dashboard = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col gap-5 items-center justify-center">
         {/* Page content here */}
 
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
+          className="btn btn-primary drawer-button mb-2 lg:hidden"
         >
           Open drawer
         </label>
         <Outlet />
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side w-1/2">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-indigo-400 text-white flex flex-col gap-2">
           {/* Sidebar content here */}
           {options}
-          <div className="divider bg-white h-[2px]"></div>
+          <div className="divider bg-white h-[2px] md:w-full w-/3/4"></div>
           {fixedOptions}
         </ul>
       </div>

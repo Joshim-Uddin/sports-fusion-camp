@@ -10,6 +10,7 @@ import Error from "../Pages/Error";
 import PopularClasses from "../Pages/PopularClasses";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import AddClass from "../Pages/Dashboard/Instructor/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "users",
         element: <ManageUsers />,
+      },
+      {
+        path: "addclass",
+        element: <AddClass />,
       },
     ],
   },
