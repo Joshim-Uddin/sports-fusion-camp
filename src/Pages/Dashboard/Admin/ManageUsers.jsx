@@ -5,11 +5,41 @@ import { useState } from "react";
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
+  const [state, setState] = useState(false);
   useEffect(() => {
     fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
-  }, []);
+  }, [state]);
+  const makeAdmin = (email) => {
+    const admin = { role: "admin" };
+    fetch(`http://localhost:5000/user?email=${email}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(admin),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          setState(true);
+        }
+      });
+  };
+  const makeInstructor = (email) => {
+    const instructor = { role: "instructor" };
+    fetch(`http://localhost:5000/user?email=${email}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(instructor),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          setState(true);
+        }
+      });
+  };
+
   return (
     <div>
       <h2 className="uppercase text-2xl font-semibold text-center mb-4">
@@ -34,10 +64,24 @@ const ManageUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button className="btn btn-custom">Make Admin</button>
+                  <button
+                    onClick={() => makeAdmin(user?.email)}
+                    className="btn btn-custom"
+                    disabled={user?.role == "admin"}
+                  >
+                    Make Admin
+                  </button>
                 </td>
                 <td>
-                  <button className="btn btn-custom">Make Instructor</button>
+                  <button
+                    className="btn btn-custom"
+                    onClick={() => makeInstructor(user?.email)}
+                    disabled={
+                      user?.role == "admin" || user?.role == "instructor"
+                    }
+                  >
+                    Make Instructor
+                  </button>
                 </td>
               </tr>
             ))}

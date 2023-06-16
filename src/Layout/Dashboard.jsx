@@ -5,13 +5,14 @@ import { AuthContext } from "../Providers/AuthProviders";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-  const [role, setRole] = useState("user");
+  const [role, setRole] = useState("");
   useEffect(() => {
     fetch(`http://localhost:5000/user?email=${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setRole(data.role));
+      .then((data) => setRole(data?.role))
+      .catch((err) => err);
   }, [user]);
-  console.log(role);
+
   const options =
     role === "admin" ? (
       <>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,7 +6,7 @@
 .btn-custom{
   @apply bg-[#03203C] text-white hover:bg-[#8C4040] hover:transition-transform hover:scale-110
 }
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 .loginForm{
   background-image: url('authImg.jpg');
   background-repeat: no-repeat;
