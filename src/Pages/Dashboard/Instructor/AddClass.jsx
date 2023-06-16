@@ -7,6 +7,7 @@ const AddClass = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const getFormData = (data) => {
@@ -27,6 +28,7 @@ const AddClass = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    reset();
   };
   return (
     <div className="AddClassForm md:my-2">
