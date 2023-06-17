@@ -17,9 +17,12 @@ const SelectedClasses = () => {
       confirmButtonText: "Yes, delete!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/selectclass/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -31,7 +34,7 @@ const SelectedClasses = () => {
     });
   };
   const handlePay = (id) => {
-    // fetch(`http://localhost:5000/selectclass/${id}`, {
+    // fetch(`https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass/${id}`, {
     //   method: "DELETE",
     // })
     //   .then((res) => res.json())

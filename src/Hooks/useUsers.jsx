@@ -8,7 +8,15 @@ const useUsers = () => {
   const { user } = useContext(AuthContext);
   const [role, setRole] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:5000/user?email=${user?.email}`)
+    fetch(
+      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/user?email=${user?.email}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setRole(data?.role))
       .catch((err) => err);

@@ -13,7 +13,13 @@ const useSelectedClasses = () => {
     queryKey: ["selected", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/selectclass?email=${user?.email}`
+        `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass?email=${user?.email}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
+          },
+        }
       );
       return res.json();
     },

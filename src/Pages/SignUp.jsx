@@ -32,13 +32,16 @@ const SignUp = () => {
             name: name,
             email: email,
           };
-          fetch("http://localhost:5000/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(savedUser),
-          });
+          fetch(
+            "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/users",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(savedUser),
+            }
+          );
           updateProfile(currentUser, { displayName: name, photoURL: photoUrl })
             .then(() =>
               Swal.fire({

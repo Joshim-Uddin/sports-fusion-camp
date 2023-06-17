@@ -16,13 +16,16 @@ const SocialLogin = () => {
           name: loggedInUser.displayName,
           email: loggedInUser.email,
         };
-        fetch("http://localhost:5000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(savedUser),
-        })
+        fetch(
+          "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          }
+        )
           .then((res) => res.json())
           .then((data) => console.log(data));
         navigate(from, { replace: true });

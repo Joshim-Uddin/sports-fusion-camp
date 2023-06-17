@@ -9,10 +9,10 @@ const PrivateRoutes = ({ children }) => {
 
   if (loading) {
     return (
-      <div>
+      <div className="flex text-5xl font-bold">
         L{" "}
-        <div className="border-[5px] border-dashed animate-spin h-12 w-12 rounded-full"></div>{" "}
-        ading
+        <div className="border-[8px] border-dashed border-blue-600 animate-spin h-12 w-12 rounded-full"></div>{" "}
+        ading.....
       </div>
     );
   }

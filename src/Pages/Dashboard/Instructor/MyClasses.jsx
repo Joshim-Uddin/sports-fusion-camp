@@ -5,7 +5,15 @@ const MyClasses = () => {
   const { user } = useContext(AuthContext);
   const [myClasses, setMyClasses] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/instructorclasses?email=${user?.email}`)
+    fetch(
+      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/instructorclasses?email=${user?.email}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setMyClasses(data));
   }, [user]);

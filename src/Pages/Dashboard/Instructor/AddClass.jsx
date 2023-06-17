@@ -21,11 +21,14 @@ const AddClass = () => {
       price: parseFloat(price),
       status: "pending",
     };
-    fetch("http://localhost:5000/addclass", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(myClass),
-    })
+    fetch(
+      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/addclass",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(myClass),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
     reset();

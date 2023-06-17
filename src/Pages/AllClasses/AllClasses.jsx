@@ -14,7 +14,9 @@ const AllClasses = () => {
   const [, refetch] = useSelectedClasses();
   const role = useUsers();
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch(
+      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/classes"
+    )
       .then((response) => response.json())
       .then((data) => {
         const approvedClass = data.filter((item) => item.status === "approved");
@@ -34,13 +36,16 @@ const AllClasses = () => {
       price,
       seats,
     };
-    fetch(`http://localhost:5000/selectclass`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(selected),
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(selected),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "Failed") {

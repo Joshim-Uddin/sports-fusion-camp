@@ -3,17 +3,22 @@ import React, { useEffect, useState } from "react";
 const ManageClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/classes")
+    fetch(
+      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/classes"
+    )
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, [classes]);
   const handleApprove = (id) => {
     const status = { status: "approved" };
-    fetch(`http://localhost:5000/classes/${id}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(status),
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/classes/${id}`,
+      {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(status),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
   };

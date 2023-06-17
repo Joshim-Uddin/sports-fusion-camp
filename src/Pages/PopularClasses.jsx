@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 const PopularClasses = () => {
   const [popularClasses, setPopularClasses] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/popularclasses")
+    fetch(
+      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/popularclasses"
+    )
       .then((res) => res.json())
       .then((data) => {
         setPopularClasses(data);

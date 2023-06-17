@@ -44,6 +44,27 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      if (currentUser && currentUser.email) {
+        const loggedUser = {
+          email: currentUser.email,
+        };
+        fetch(
+          "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/jwt",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(loggedUser),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("fusion-camp", data.token);
+          });
+      } else {
+        localStorage.removeItem("fusion-camp");
+      }
     });
     return () => unsubscribe();
   }, []);

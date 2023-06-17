@@ -18,6 +18,7 @@ import EnrolledClasses from "../Pages/Dashboard/Students/EnrolledClasses";
 import Enroll from "../Pages/Dashboard/Students/Enroll";
 import PaymentSuccess from "../Pages/Dashboard/Students/PaymentSuccess";
 import PrivateRoutes from "./PrivateRoutes";
+import AdminRoutes from "./AdminRoutes";
 
 const router = createBrowserRouter([
   {
@@ -61,11 +62,19 @@ const router = createBrowserRouter([
     children: [
       {
         path: "classes",
-        element: <ManageClasses />,
+        element: (
+          <AdminRoutes>
+            <ManageClasses />
+          </AdminRoutes>
+        ),
       },
       {
         path: "users",
-        element: <ManageUsers />,
+        element: (
+          <AdminRoutes>
+            <ManageUsers />
+          </AdminRoutes>
+        ),
       },
       {
         path: "addclass",

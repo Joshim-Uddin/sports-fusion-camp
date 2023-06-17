@@ -11,11 +11,14 @@ const Enroll = () => {
   const id = useParams();
   const payable = selected?.find((item) => item?._id === id?.id);
   const handlePayment = () => {
-    fetch(`http://localhost:5000/enroll`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payable),
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/enroll`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payable),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         window.location.replace(result.url);
