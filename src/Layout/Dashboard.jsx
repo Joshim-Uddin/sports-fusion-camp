@@ -49,9 +49,6 @@ const Dashboard = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="users">Manage Users</Link>
-      </li>
     </>
   );
   return (
