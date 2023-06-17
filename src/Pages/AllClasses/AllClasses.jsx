@@ -6,6 +6,7 @@ import useUsers from "../../Hooks/useUsers";
 import { AuthContext } from "../../Providers/AuthProviders";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AllClasses = () => {
   const { user } = useContext(AuthContext);
@@ -59,7 +60,7 @@ const AllClasses = () => {
       });
   };
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-10/12 mx-auto my-5">
       <h2 className="text-3xl text-center font-semibold">Book from Classes</h2>
       <div className="grid md:grid-cols-3 gap-4 my-5">
         {classes.map((classItem) => (
