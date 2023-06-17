@@ -17,7 +17,7 @@ const Banner = () => {
       <div className="md:w-1/2 md:me-8">
         <h2 className="text-4xl font-semibold">
           <Typewriter text="Welcome" loop={true} speed={600} /> <br /> Sports
-          Fushion Summmer Camp
+          Fusion Camp
         </h2>
         <p className="my-4 text-justify">
           A thrilling and dynamic sports experience that combines a variety of

@@ -2,17 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
+import useUsers from "../Hooks/useUsers";
 
 //TODO: private route
 const Dashboard = () => {
-  const { user } = useContext(AuthContext);
-  const [role, setRole] = useState("");
-  useEffect(() => {
-    fetch(`http://localhost:5000/user?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setRole(data?.role))
-      .catch((err) => err);
-  }, [user]);
+  const role = useUsers();
 
   const options =
     role === "admin" ? (
@@ -42,10 +36,10 @@ const Dashboard = () => {
     ) : (
       <>
         <li>
-          <Link to="classes">My Classes</Link>
+          <Link to="selected">My Selected Classes</Link>
         </li>
         <li>
-          <Link to="users">Modify Classes</Link>
+          <Link to="enrolled">Enrolled Classes</Link>
         </li>
       </>
     );

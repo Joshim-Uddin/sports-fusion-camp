@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
+import useUsers from "../Hooks/useUsers";
+import useSelectedClasses from "../Hooks/useSelectedClasses";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const role = useUsers();
+  const [selected] = useSelectedClasses();
 
   const handleSignOut = () => {
     logout()
@@ -18,7 +23,24 @@ const Navbar = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/instructors">Instructors</NavLink>
       <NavLink to="/classes">Classes</NavLink>
-      {user ? <NavLink to="/dashboard">Dashboard</NavLink> : ""}
+      {role === "admin" || role === "instructor" ? (
+        <NavLink to="/dashboard">Dashboard</NavLink>
+      ) : (
+        ""
+      )}
+
+      {role !== "admin" || role !== "instructor" ? (
+        <NavLink to="/dashboard">
+          <div className="relative me-2">
+            <div className="badge badge-secondary absolute bottom-5 left-2">
+              {selected.length}
+            </div>
+            <FaShoppingCart className="text-xl" />
+          </div>
+        </NavLink>
+      ) : (
+        ""
+      )}
       {user ? (
         <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
           <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
