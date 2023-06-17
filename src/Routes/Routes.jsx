@@ -17,6 +17,7 @@ import SelectedClasses from "../Pages/Dashboard/Students/SelectedClasses";
 import EnrolledClasses from "../Pages/Dashboard/Students/EnrolledClasses";
 import Enroll from "../Pages/Dashboard/Students/Enroll";
 import PaymentSuccess from "../Pages/Dashboard/Students/PaymentSuccess";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/allclasses",
-        element: <AllClasses />,
+        element: (
+          <PrivateRoutes>
+            <AllClasses />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",
