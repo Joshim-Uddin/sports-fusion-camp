@@ -83,7 +83,7 @@ const router = createBrowserRouter([
         element: <Enroll />,
       },
       {
-        path: "dashboard/selected/:id",
+        path: "selected/:id",
         element: <PaymentSuccess />,
       },
     ],

@@ -80,9 +80,9 @@ const AllClasses = () => {
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">{classItem.className}</h2>
-              <p>Instructor: {classItem.instructorName}</p>
+              <p>Instructor : {classItem.instructorName}</p>
               <div className="flex flex-col md:flex-row justify-around items-center md:gap-10 gap-2">
-                <p>Available seats: {classItem.seats}</p>
+                <p>Available seats : {classItem.seats}</p>
                 <p>Price : $ {classItem.price}</p>
               </div>
               <div className="card-actions">
@@ -95,7 +95,7 @@ const AllClasses = () => {
                   }
                   onClick={() => handleSelect(classItem)}
                 >
-                  Select Now
+                  Select
                 </button>
               </div>
             </div>
