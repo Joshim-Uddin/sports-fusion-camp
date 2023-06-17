@@ -1,9 +1,11 @@
 import React from "react";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
+import { Link, useParams } from "react-router-dom";
 
 const SelectedClasses = () => {
   const [selected, refetch] = useSelectedClasses();
+  const transId = useParams();
   const handleDelete = (id) => {
     Swal.fire({
       title: "Want to Delete?",
@@ -28,12 +30,24 @@ const SelectedClasses = () => {
       }
     });
   };
+  const handlePay = (id) => {
+    // fetch(`http://localhost:5000/selectclass/${id}`, {
+    //   method: "DELETE",
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.deletedCount > 0) {
+    //       refetch();
+    //     }
+    //   });
+  };
 
   return (
     <div className="overflow-x-auto">
       <h2 className="uppercase text-2xl font-semibold text-center mb-4">
         Manage Selected Classes
       </h2>
+
       <table className="table">
         {/* head */}
         <thead>
@@ -72,7 +86,14 @@ const SelectedClasses = () => {
               <td>{myClass.seats}</td>
               <td>{myClass.price}</td>
               <td>
-                <button className="btn btn-custom">Pay</button>
+                <Link to={`/dashboard/enroll/${myClass._id}`}>
+                  <button
+                    className="btn btn-custom"
+                    onClick={() => handlePay(myClass._id)}
+                  >
+                    Pay
+                  </button>
+                </Link>
               </td>
               <td>
                 <button

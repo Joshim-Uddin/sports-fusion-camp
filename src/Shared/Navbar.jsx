@@ -22,7 +22,7 @@ const Navbar = () => {
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/instructors">Instructors</NavLink>
-      <NavLink to="/classes">Classes</NavLink>
+      <NavLink to="/allclasses">Classes</NavLink>
       {role === "admin" || role === "instructor" ? (
         <NavLink to="/dashboard">Dashboard</NavLink>
       ) : (

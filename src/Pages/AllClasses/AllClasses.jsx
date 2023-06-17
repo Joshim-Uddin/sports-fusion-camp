@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import useUsers from "../../Hooks/useUsers";
 import { AuthContext } from "../../Providers/AuthProviders";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
+import Swal from "sweetalert2";
 
 const AllClasses = () => {
   const { user } = useContext(AuthContext);
@@ -21,8 +22,10 @@ const AllClasses = () => {
   }, []);
   const handleSelect = (classItem) => {
     const email = user?.email;
-    const { className, classImage, instructorName, price, seats } = classItem;
+    const { _id, className, classImage, instructorName, price, seats } =
+      classItem;
     const selected = {
+      classId: _id,
       email,
       className,
       classImage,
@@ -39,7 +42,18 @@ const AllClasses = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.acknowledged) {
+        if (data.status === "Failed") {
+          Swal.fire({
+            icon: "error",
+            title: "Class Already Selected",
+          });
+        } else if (data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Class Selected Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           refetch();
         }
       });

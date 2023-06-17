@@ -17,8 +17,8 @@ const AddClass = () => {
       classImage,
       instructorName,
       email,
-      seats,
-      price,
+      seats: parseInt(seats),
+      price: parseFloat(price),
       status: "pending",
     };
     fetch("http://localhost:5000/addclass", {
