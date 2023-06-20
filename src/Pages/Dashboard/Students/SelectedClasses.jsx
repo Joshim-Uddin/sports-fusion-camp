@@ -18,7 +18,7 @@ const SelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass/${id}`,
+          `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/selectclass/${id}`,
           {
             method: "DELETE",
           }
@@ -34,7 +34,7 @@ const SelectedClasses = () => {
     });
   };
   const handlePay = (id) => {
-    // fetch(`https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass/${id}`, {
+    // fetch(`https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/selectclass/${id}`, {
     //   method: "DELETE",
     // })
     //   .then((res) => res.json())

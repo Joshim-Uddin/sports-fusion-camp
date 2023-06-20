@@ -13,8 +13,9 @@ const useEnrolledClass = () => {
     queryKey: ["enrolled", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/enrolledclass?email=${user?.email}`,
+        `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/enrolledclass?email=${user?.email}`,
         {
+          method: "GET",
           headers: {
             "Content-Type": "application/json",
             authorization: `bearer ${localStorage.getItem("fusion-camp")}`,

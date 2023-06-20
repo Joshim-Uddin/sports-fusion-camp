@@ -9,8 +9,9 @@ const useUsers = () => {
   const [role, setRole] = useState("");
   useEffect(() => {
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/user?email=${user?.email}`,
+      `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/user?email=${user?.email}`,
       {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           authorization: `bearer ${localStorage.getItem("fusion-camp")}`,

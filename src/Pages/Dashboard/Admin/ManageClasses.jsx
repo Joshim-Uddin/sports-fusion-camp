@@ -4,7 +4,7 @@ const ManageClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
     fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/classes"
+      "https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/classes"
     )
       .then((res) => res.json())
       .then((data) => setClasses(data));
@@ -12,7 +12,7 @@ const ManageClasses = () => {
   const handleApprove = (id) => {
     const status = { status: "approved" };
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/classes/${id}`,
+      `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/classes/${id}`,
       {
         method: "PATCH",
         headers: { "content-type": "application/json" },

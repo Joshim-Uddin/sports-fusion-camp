@@ -6,6 +6,9 @@ const PopularInstructors = () => {
       <h2 className="text-3xl font-semibold text-center">
         Our Popular Instructor
       </h2>
+      <div>
+        
+      </div>
     </div>
   );
 };

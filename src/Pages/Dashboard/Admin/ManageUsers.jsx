@@ -7,21 +7,18 @@ const ManageUsers = () => {
   const [users, setUsers] = useState([]);
   const [state, setState] = useState(false);
   useEffect(() => {
-    fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/users"
-    )
+    fetch("https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, [state]);
   const makeAdmin = (email) => {
     const admin = { role: "admin" };
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/user?email=${email}`,
+      `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/user?email=${email}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
         },
         body: JSON.stringify(admin),
       }
@@ -36,12 +33,11 @@ const ManageUsers = () => {
   const makeInstructor = (email) => {
     const instructor = { role: "instructor" };
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/user?email=${email}`,
+      `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/user?email=${email}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
         },
         body: JSON.stringify(instructor),
       }
