@@ -11,6 +11,7 @@ const useUsers = () => {
     fetch(
       `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/user?email=${user?.email}`,
       {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           authorization: `bearer ${localStorage.getItem("fusion-camp")}`,

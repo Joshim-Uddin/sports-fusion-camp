@@ -19,7 +19,6 @@ const ManageUsers = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
         },
         body: JSON.stringify(admin),
       }
@@ -39,7 +38,6 @@ const ManageUsers = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
         },
         body: JSON.stringify(instructor),
       }
