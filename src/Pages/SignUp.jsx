@@ -31,9 +31,10 @@ const SignUp = () => {
           const savedUser = {
             name: name,
             email: email,
+            image: photoUrl,
           };
           fetch(
-            "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/users",
+            "https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/users",
             {
               method: "POST",
               headers: {

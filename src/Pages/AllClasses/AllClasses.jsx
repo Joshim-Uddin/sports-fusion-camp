@@ -15,7 +15,7 @@ const AllClasses = () => {
   const role = useUsers();
   useEffect(() => {
     fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/classes"
+      "https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/classes"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -37,7 +37,7 @@ const AllClasses = () => {
       seats,
     };
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-woad-phi.vercel.app/selectclass`,
+      `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/selectclass`,
       {
         method: "POST",
         headers: {
