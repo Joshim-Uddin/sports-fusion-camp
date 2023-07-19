@@ -29,7 +29,7 @@ const Navbar = () => {
         ""
       )}
 
-      {role !== "admin" || role !== "instructor" ? (
+      {role !== "admin" && user || role !== "instructor" && user ? (
         <NavLink to="/dashboard">
           <div className="relative me-2">
             <div className="badge badge-secondary absolute bottom-5 left-2">
@@ -60,7 +60,7 @@ const Navbar = () => {
       <nav className="max-[600px]:hidden flex items-center justify-between h-28 lg:px-16 px-8 bg-[#03203C] text-white">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <h3 className="text-3xl font-semibold m-0 font-['logo']">
+            <h3 className="text-3xl font-semibold m-0 font-['Oleo']">
               Sports Fusion Camp
             </h3>
           </Link>
@@ -71,7 +71,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center p-4">
           <FaBars onClick={() => setClicked(!clicked)} />
           <Link to="/">
-            <h4 className="text-xl font-semibold font-['logo']">
+            <h4 className="text-xl font-semibold font-['Oleo']">
               Sports Fusion Camp
             </h4>
           </Link>

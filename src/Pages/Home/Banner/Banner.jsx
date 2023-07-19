@@ -13,9 +13,9 @@ import Typewriter from "react-ts-typewriter";
 
 const Banner = () => {
   return (
-    <div className="md:flex justify-center items-center w-10/12 gap-5 mx-auto my-5">
+    <div className="md:flex justify-center items-center w-10/12 gap-5 mx-auto my-5 md:min-h-screen">
       <div className="md:w-1/2 md:me-8">
-        <h2 className="text-4xl font-semibold">
+        <h2 className="text-5xl font-extrabold">
           <Typewriter text="Welcome" loop={true} speed={600} /> <br /> Sports
           Fusion Camp
         </h2>
