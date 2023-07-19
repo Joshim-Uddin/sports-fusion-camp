@@ -16,8 +16,8 @@ const PopularClasses = () => {
   }, []);
   return (
     <>
-    <div className="w-10/12 mx-auto my-12 py-3">
-      <h2 className="text-center text-3xl font-semibold my-5">
+    <div className="w-11/12 md:w-10/12 mx-auto my-12 py-3">
+      <h2 className="text-center md:border-b-8 border-b-4 border-amber-600 border-dashed md:w-5/12 mx-auto pb-5 text-3xl md:text-5xl font-['Caprasimo'] font-bold text-[#422C18] my-5">
         Our Popular Class
       </h2>
       <div className="grid md:grid-cols-3 grid-col-1 gap-3">

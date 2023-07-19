@@ -10,7 +10,8 @@ export default {
         'logo': ['Righteous', 'cursive'],
         'Caprasimo':['Caprasimo', 'cursive'],
         'Oleo':['Oleo Script Swash Caps', 'cursive'],
-        'script':['Style Script', 'cursive']
+        'script':['Style Script', 'cursive'],
+        'Luckiest Guy': ['Luckiest Guy', 'cursive'],
       },
     },
   },

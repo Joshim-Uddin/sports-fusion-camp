@@ -3,7 +3,7 @@ import Counter from './Counter';
 
 const CounterSection = () => {
     return (
-        <div className='grid md:grid-cols-3 gap-3 w-10/12 mx-auto my-8'>
+        <div className='grid md:grid-cols-3 gap-3 w-11/12 md:w-10/12 mx-auto my-8'>
            <div className='h-32 rounded-xl bg-indigo-300 text-3xl font-semibold p-3 text-center'>
             <h3 className=''>Vistiors</h3>
            <Counter endNumber={20220} time='30' />

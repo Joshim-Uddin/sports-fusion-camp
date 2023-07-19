@@ -26,7 +26,7 @@ const CountDown = () => {
       
     return (
         <div className='bg-[#FCC044] text-white py-10 md:px-24 px-4 flex flex-col gap-5 md:flex-row items-center justify-between'>
-           <h2 className='text-center md:text-left md:md:text-5xl text-4xl text-4xl font-["Oleo"] font-semibold'> Don&apos;t Miss the First Day <br /> of Summer Camp!</h2>
+           <h2 className='text-center md:text-left md:text-5xl text-4xl font-["Oleo"] font-semibold'> Don&apos;t Miss the First Day <br /> of Summer Camp!</h2>
            <Countdown date={Date.now() + 2592000000} renderer={renderer}/>
         </div>
     );
