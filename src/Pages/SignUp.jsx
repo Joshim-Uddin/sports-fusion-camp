@@ -34,7 +34,7 @@ const SignUp = () => {
             image: photoUrl,
           };
           fetch(
-            "https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/users",
+            "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/users",
             {
               method: "POST",
               headers: {
@@ -42,7 +42,7 @@ const SignUp = () => {
               },
               body: JSON.stringify(savedUser),
             }
-          );
+          ).then(res=>res.json()).then(data=>console.log(data))
           updateProfile(currentUser, { displayName: name, photoURL: photoUrl })
             .then(() =>
               Swal.fire({

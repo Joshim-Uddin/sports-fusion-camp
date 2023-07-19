@@ -6,7 +6,7 @@ const MyClasses = () => {
   const [myClasses, setMyClasses] = useState([]);
   useEffect(() => {
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/instructorclasses?email=${user?.email}`,
+      `https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/instructorclasses?email=${user?.email}`,
       {
         headers: {
           "Content-Type": "application/json",

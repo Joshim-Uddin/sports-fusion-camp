@@ -49,7 +49,7 @@ const AuthProviders = ({ children }) => {
           email: currentUser.email,
         };
         fetch(
-          "https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/jwt",
+          "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/jwt",
           {
             method: "POST",
             headers: {

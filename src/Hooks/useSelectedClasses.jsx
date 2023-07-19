@@ -13,7 +13,7 @@ const useSelectedClasses = () => {
     queryKey: ["selected", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/selectclass?email=${user?.email}`,
+        `https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/selectclass?email=${user?.email&&user.email}`,
         {
           method: "GET",
           headers: {

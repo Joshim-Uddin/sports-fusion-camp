@@ -7,7 +7,7 @@ const PopularClasses = () => {
   const [popularClasses, setPopularClasses] = useState();
   useEffect(() => {
     fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin.vercel.app/popularclasses"
+      "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/popularclasses"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -15,7 +15,8 @@ const PopularClasses = () => {
       });
   }, []);
   return (
-    <div className="w-10/12 mx-auto my-12">
+    <>
+    <div className="w-10/12 mx-auto my-12 py-3">
       <h2 className="text-center text-3xl font-semibold my-5">
         Our Popular Class
       </h2>
@@ -53,6 +54,8 @@ const PopularClasses = () => {
         </Link>
       </div>
     </div>
+    <hr className="w-10/12 mx-auto border-blue-300 border-y-4"></hr>
+    </>
   );
 };
 
