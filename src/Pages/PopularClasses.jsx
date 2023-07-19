@@ -54,7 +54,7 @@ const PopularClasses = () => {
         </Link>
       </div>
     </div>
-    <hr className="w-10/12 mx-auto border-blue-300 border-y-4"></hr>
+    
     </>
   );
 };

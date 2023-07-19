@@ -4,6 +4,7 @@ import PopularClasses from "../PopularClasses";
 import PopularInstructors from "../PopularInstructors";
 import CounterSection from "./Counter/CounterSection";
 import CountDown from "../Countdown";
+import CampIdea from "../CampIdea";
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner />
       <CountDown />
       <PopularClasses />
+      <CampIdea />
       <PopularInstructors />
       <CounterSection />
     </div>
