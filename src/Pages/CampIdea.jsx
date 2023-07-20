@@ -1,22 +1,24 @@
-import React from 'react';
-import campIdea from './../assets/campidea.jpg'
-import { Parallax } from 'react-parallax';
+import React from "react";
+import campIdea from "./../assets/campidea.jpg";
+import { Parallax } from "react-parallax";
 
 const CampIdea = () => {
-    return (
-        <>
-        <Parallax blur={{ min: -15, max: 15 }}
+  return (
+    <>
+      <Parallax
+        blur={{ min: -15, max: 15 }}
         bgImage={campIdea}
         bgImageAlt="the dog"
-        strength={-200}>
-
-        <div className='h-screen flex flex-col items-center justify-center'>
-            <p className='bg-blend-multiply text-red-600 bg-blue-400 w-11/12 p-10'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, perferendis ipsam expedita accusantium praesentium dicta nihil asperiores laboriosam hic ex, rem quam officiis aut. Blanditiis animi enim nam! Reiciendis impedit ut exercitationem id nobis dignissimos voluptatibus beatae alias. Accusantium eos repellat nesciunt illo ipsa nisi explicabo corporis consequuntur sapiente facilis.</p>
+        strength={-200}
+      >
+        <div className="h-screen flex flex-col items-center justify-center">
+          <h3 className="text-3xl shadow-lg shadow-blue-400 bg-blend-overlay font-bold text-center text-[#422C18] bg-amber-400 w-11/12 py-10">
+            Learn More About Sports Fusion Camp
+          </h3>
         </div>
-        </Parallax>
-        
-        </>
-    );
+      </Parallax>
+    </>
+  );
 };
 
 export default CampIdea;
