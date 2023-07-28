@@ -5,6 +5,7 @@ import PopularInstructors from "../PopularInstructors";
 import CounterSection from "./Counter/CounterSection";
 import CountDown from "../Countdown";
 import CampIdea from "../CampIdea";
+import Contact from "./Contact";
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <CampIdea />
       <PopularInstructors />
       <CounterSection />
+      <Contact />
     </div>
   );
 };

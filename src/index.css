@@ -17,3 +17,58 @@
 body{
   @apply bg-slate-50
 }
+.draw{
+  position: relative;
+  width: 220px;
+  height: 64px;
+  /* background: rgba(0,0,0,0.75); */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.draw1{
+  position: relative;
+  width: 220px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.draw::before{
+  content: '';
+  position: absolute;
+  height: 70px;
+  width: 220px;
+  background-image: conic-gradient(transparent,transparent, transparent, rgba(245, 129, 245, 0.75));
+  animation: animate 3s linear infinite;
+}
+.draw1::before{
+  content: '';
+  position: absolute;
+  height: 70px;
+  width: 220px;
+  background-image: conic-gradient(transparent,transparent, transparent, rgba(76, 209, 250, 0.75));
+  animation: animate1 3s linear infinite;
+}
+
+
+@keyframes animate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-360deg);
+  }
+}
+@keyframes animate1{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
