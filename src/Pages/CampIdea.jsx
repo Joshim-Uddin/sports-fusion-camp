@@ -8,11 +8,11 @@ const CampIdea = () => {
       <Parallax
         blur={{ min: -15, max: 15 }}
         bgImage={campIdea}
-        bgImageAlt="the dog"
+        bgImageAlt="campeign Idea"
         strength={-200}
       >
-        <div className="h-screen flex flex-col items-center justify-center">
-          <h3 className="text-3xl shadow-lg shadow-blue-400 bg-blend-overlay font-bold text-center text-[#422C18] bg-amber-400 w-11/12 py-10">
+        <div className="md:h-[700px] h-[400px] flex flex-col items-center justify-center">
+          <h3 className="md:text-3xl text-2xl shadow-lg shadow-blue-400 bg-blend-overlay font-bold text-center text-[#422C18] bg-amber-400 w-11/12 py-10">
             Learn More About Sports Fusion Camp
           </h3>
         </div>

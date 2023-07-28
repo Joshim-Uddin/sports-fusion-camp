@@ -19,10 +19,8 @@ body{
 }
 .draw{
   position: relative;
-  width: 220px;
+  width: 270px;
   height: 64px;
-  /* background: rgba(0,0,0,0.75); */
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +28,7 @@ body{
 }
 .draw1{
   position: relative;
-  width: 220px;
+  width: 270px;
   height: 64px;
   display: flex;
   justify-content: center;
@@ -42,7 +40,7 @@ body{
   content: '';
   position: absolute;
   height: 70px;
-  width: 220px;
+  width: 280px;
   background-image: conic-gradient(transparent,transparent, transparent, rgba(245, 129, 245, 0.75));
   animation: animate 3s linear infinite;
 }
@@ -50,7 +48,7 @@ body{
   content: '';
   position: absolute;
   height: 70px;
-  width: 220px;
+  width: 280px;
   background-image: conic-gradient(transparent,transparent, transparent, rgba(76, 209, 250, 0.75));
   animation: animate1 3s linear infinite;
 }
