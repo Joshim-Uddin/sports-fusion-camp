@@ -3,7 +3,6 @@ import { FaBeer, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([])
-  console.log(instructors);
   useEffect(() => {
     fetch("https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/popularinstructor").then((res)=>res.json()).then(data=>setInstructors(data))
   }, []);

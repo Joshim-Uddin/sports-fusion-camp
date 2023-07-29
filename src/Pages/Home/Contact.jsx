@@ -26,7 +26,7 @@ const Contact = () => {
     }
     return (
         <div className='py-10 bg-slate-100'>
-            <h2 className="text-center md:border-b-8 border-b-4 border-amber-600 border-dashed md:w-4/12 w-8/12 mx-auto pb-5 text-3xl md:text-5xl font-['Caprasimo'] font-bold text-[#422C18] mb-8">
+            <h2 className="text-center md:border-b-8 border-b-4 border-amber-600 border-dashed md:w-4/12 w-8/12 mx-auto pb-5 text-3xl md:text-5xl font-['Caprasimo'] font-bold text-[#422C18] md:mb-20 mb-8">
         Contact Us
       </h2>
       <div className='grid md:grid-cols-2 grid-cols-1 gap-10 w-10/12 mx-auto '>
