@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaBeer, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([])
@@ -12,15 +13,18 @@ const PopularInstructors = () => {
       <h2 className="text-center md:border-b-8 border-b-4 border-amber-600 border-dashed md:w-6/12 mx-auto pb-5 text-3xl md:text-5xl font-['Caprasimo'] font-bold text-[#422C18] my-8">
         Our Popular Instructor
       </h2>
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-4 my-4">{
-        instructors.map((item, index)=><div key={index} className="card card-compact w-full bg-amber-600 shadow-xl mb-5 relative">
-        <figure><img src={item.instructorImage} alt={`${item.name}'s image` } className="w-full h-64" /></figure>
-        <div className="card-body text-center bg-amber-600 transition ease-in-out delay-100 hover:-translate-y-10 text-white rounded-b-2xl">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center">Name : {item.name}</h2>
-          <p className="text-lg md:text-xl font-semibold">Email : {item.instructorEmail}</p>
-          <div className="card-actions justify-center">
-           <p>Best Instructor from different edges and their quality ensured here.</p>
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-4 my-4 pt-10">{
+        instructors.map((item, index)=><div key={index} className="mb-5 p-5 hover:bg-white hover:shadow-lg rounded-lg">
+        <figure><img src={item.instructorImage} alt={`${item.name}'s image` } className="w-52 mx-auto h-52 rounded-full" /></figure>
+        <div className="text-center">
+          <h2 className="text-xl md:text-2xl font-semibold text-center pt-5">{item.name}</h2>
+          <div className="flex gap-5 items-center justify-center pt-5">
+            <a href="#"><FaFacebook  className="text-2xl"/></a>
+            <a href="#"><FaLinkedin  className="text-2xl"/></a>
+            <a href="#"><FaTwitter  className="text-2xl"/></a>
           </div>
+          <div className="card-actions justify-center">
+           </div>
         </div>
       </div>)
         }</div>

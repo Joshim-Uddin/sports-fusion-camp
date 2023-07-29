@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Enroll = () => {
   const { user } = useContext(AuthContext);
@@ -22,7 +23,6 @@ const Enroll = () => {
       .then((res) => res.json())
       .then((result) => {
         window.location.replace(result.url);
-        console.log(result);
       });
   };
   return (

@@ -19,6 +19,7 @@ import Enroll from "../Pages/Dashboard/Students/Enroll";
 import PaymentSuccess from "../Pages/Dashboard/Students/PaymentSuccess";
 import PrivateRoutes from "./PrivateRoutes";
 import AdminRoutes from "./AdminRoutes";
+import PaymentFail from "../Shared/PaymentFail";
 
 const router = createBrowserRouter([
   {
@@ -97,8 +98,12 @@ const router = createBrowserRouter([
         element: <Enroll />,
       },
       {
-        path: "selected/:id",
+        path: "success/:trans_Id",
         element: <PaymentSuccess />,
+      },
+      {
+        path: "fail/:trans_Id",
+        element: <PaymentFail />,
       },
     ],
   },

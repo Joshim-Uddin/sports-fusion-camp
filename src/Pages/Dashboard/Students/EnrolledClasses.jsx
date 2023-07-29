@@ -4,7 +4,7 @@ import useEnrolledClass from "../../../Hooks/useEnrolledClass";
 const EnrolledClasses = () => {
   const [enrolled, refetch] = useEnrolledClass();
 
-  //   console.log(Id);
+  console.log(enrolled)
   return <div>{enrolled.length}</div>;
 };
 

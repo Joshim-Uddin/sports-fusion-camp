@@ -11,9 +11,6 @@ const Map = () => {
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
   <Marker position={[24.0030981,88.8790879]}>
-    <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
   </Marker>
 </MapContainer>
     </div>
