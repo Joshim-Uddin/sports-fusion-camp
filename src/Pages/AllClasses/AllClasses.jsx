@@ -7,6 +7,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import useSelectedClasses from "../../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { Link, NavLink } from "react-router-dom";
 
 const AllClasses = () => {
   const { user } = useContext(AuthContext);
@@ -15,7 +16,7 @@ const AllClasses = () => {
   const role = useUsers();
   useEffect(() => {
     fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/classes"
+      "http://localhost:5000/classes"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -37,7 +38,7 @@ const AllClasses = () => {
       seats,
     };
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/selectclass`,
+      `http://localhost:5000/selectclass`,
       {
         method: "POST",
         headers: {
@@ -80,7 +81,7 @@ const AllClasses = () => {
             <figure className="md:px-5 px-2 pt-5">
               <img
                 src={classItem.classImage}
-                alt="Shoes"
+                alt={`${classItem.className} image`}
                 className="rounded-xl h-48 w-full"
               />
             </figure>
@@ -92,7 +93,11 @@ const AllClasses = () => {
                 <p>Price : $ {classItem.price}</p>
               </div>
               <div className="card-actions">
+                {role==='admin'? <Link to='/dashboard/classes'>
                 <button
+                  className="btn btn-custom">
+                  Manage Class
+                </button></Link>: <button
                   className="btn btn-custom"
                   disabled={
                     classItem.seats == 0 ||
@@ -102,7 +107,7 @@ const AllClasses = () => {
                   onClick={() => handleSelect(classItem)}
                 >
                   Select
-                </button>
+                </button>}
               </div>
             </div>
           </div>

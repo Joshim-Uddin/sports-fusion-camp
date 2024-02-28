@@ -4,7 +4,7 @@ import { FaBeer, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([])
   useEffect(() => {
-    fetch("https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/popularinstructor").then((res)=>res.json()).then(data=>setInstructors(data))
+    fetch("http://localhost:5000/popularinstructor").then((res)=>res.json()).then(data=>setInstructors(data))
   }, []);
   return (
     <div className="bg-[#f8debc] py-8">

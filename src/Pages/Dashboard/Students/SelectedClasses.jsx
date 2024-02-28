@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
 import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const SelectedClasses = () => {
   const [selected, refetch] = useSelectedClasses();
+  const {loading} = useContext(AuthContext)
   const transId = useParams();
   const handleDelete = (id) => {
     Swal.fire({
@@ -18,7 +20,7 @@ const SelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/selectclass/${id}`,
+          `http://localhost:5000/selectclass/${id}`,
           {
             method: "DELETE",
           }
@@ -33,17 +35,7 @@ const SelectedClasses = () => {
       }
     });
   };
-  const handlePay = (id) => {
-    // fetch(`https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/selectclass/${id}`, {
-    //   method: "DELETE",
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.deletedCount > 0) {
-    //       refetch();
-    //     }
-    //   });
-  };
+  
 
   return (
     <div className="overflow-x-auto">
@@ -66,7 +58,7 @@ const SelectedClasses = () => {
           </tr>
         </thead>
         <tbody>
-          {selected?.map((myClass, index) => (
+          {!loading && selected && selected?.map((myClass, index) => (
             <tr key={myClass._id}>
               <th>{index + 1}</th>
               <td>
@@ -75,7 +67,7 @@ const SelectedClasses = () => {
                     <div className="mask mask-squircle w-12 h-12">
                       <img
                         src={myClass?.classImage}
-                        alt="Basketball class image"
+                        alt={`${myClass?.name} image`}
                       />
                     </div>
                   </div>
@@ -92,11 +84,13 @@ const SelectedClasses = () => {
                 <Link to={`/dashboard/enroll/${myClass._id}`}>
                   <button
                     className="btn btn-custom"
-                    onClick={() => handlePay(myClass._id)}
                   >
                     Pay
                   </button>
                 </Link>
+              </td>
+              <td>
+                {myClass.classId}
               </td>
               <td>
                 <button

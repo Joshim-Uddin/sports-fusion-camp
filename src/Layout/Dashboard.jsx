@@ -11,34 +11,34 @@ const Dashboard = () => {
   const options =
     role === "admin" ? (
       <>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="classes">Manage Classes</Link>
         </li>
-        <li>
-          <Link to="users">Manage Users</Link>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
+          <Link className="active:text-red-700" to="users">Manage Users</Link>
         </li>
       </>
     ) : role === "instructor" ? (
       <>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="addclass">Add a Class</Link>
         </li>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="myclass">My Classes</Link>
         </li>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="myclass">Enrolled Students</Link>
         </li>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="myclass">Feedback</Link>
         </li>
       </>
     ) : (
       <>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="selected">My Selected Classes</Link>
         </li>
-        <li>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="enrolled">Enrolled Classes</Link>
         </li>
       </>
@@ -46,8 +46,8 @@ const Dashboard = () => {
 
   const fixedOptions = (
     <>
-      <li>
-        <Link to="/">Home</Link>
+      <li className="hover:bg-white hover:text-indigo-800 rounded-md">
+        <Link className="" to="/">Home</Link>
       </li>
     </>
   );
@@ -67,7 +67,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side w-1/3">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-48 h-full bg-indigo-400 text-white flex flex-col gap-2">
+        <ul className="menu p-4 h-full bg-indigo-800 text-white text-lg flex flex-col gap-2">
           {/* Sidebar content here */}
           {options}
           <div className="divider bg-white h-[2px] md:w-full w-/3/4"></div>

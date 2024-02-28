@@ -22,7 +22,7 @@ const AddClass = () => {
       status: "pending",
     };
     fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/addclass",
+      "http://localhost:5000/addclass",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

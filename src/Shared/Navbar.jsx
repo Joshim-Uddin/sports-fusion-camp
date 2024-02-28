@@ -5,14 +5,14 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import useUsers from "../Hooks/useUsers";
 import useSelectedClasses from "../Hooks/useSelectedClasses";
-import { useEffect } from "react";
+
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const { user, logout } = useContext(AuthContext);
   const role = useUsers();
   const [selected] = useSelectedClasses();
-
+console.log(role);
   const handleSignOut = () => {
     logout()
       .then((res) => res)
@@ -29,15 +29,15 @@ const Navbar = () => {
         ""
       )}
 
-      {role !== "admin" && user || role !== "instructor" && user ? (
+      {!role && user? (
         <NavLink to="/dashboard">
-          <div className="relative me-2">
-            <div className="badge badge-secondary absolute bottom-5 left-2">
-              {selected.length}
-            </div>
-            <FaShoppingCart className="text-xl" />
+        <div className="relative me-2">
+          <div className="badge badge-secondary absolute bottom-5 left-2">
+            {selected.length}
           </div>
-        </NavLink>
+          <FaShoppingCart className="text-xl" />
+        </div>
+      </NavLink>
       ) : (
         ""
       )}
@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-4 text-lg">{navOptions}</div>
       </nav>
-      <div className="min-[600px]:hidden bg-[#03203C] text-white">
+      <nav className="min-[600px]:hidden bg-[#03203C] text-white">
         <div className="flex justify-between items-center p-4">
           <FaBars onClick={() => setClicked(!clicked)} />
           <Link to="/">
@@ -85,7 +85,7 @@ const Navbar = () => {
         >
           {navOptions}
         </div>
-      </div>
+      </nav>
     </>
   );
 };

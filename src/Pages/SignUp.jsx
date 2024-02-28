@@ -34,7 +34,7 @@ const SignUp = () => {
             image: photoUrl,
           };
           fetch(
-            "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/users",
+            "http://localhost:5000/adduser",
             {
               method: "POST",
               headers: {

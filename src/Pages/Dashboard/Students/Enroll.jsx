@@ -11,9 +11,10 @@ const Enroll = () => {
   const [selected] = useSelectedClasses();
   const id = useParams();
   const payable = selected?.find((item) => item?._id === id?.id);
+  console.log(payable)
   const handlePayment = () => {
     fetch(
-      `https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/enroll`,
+      `http://localhost:5000/enroll`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

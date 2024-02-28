@@ -17,6 +17,7 @@
 body{
   @apply bg-slate-50
 }
+
 .draw{
   position: relative;
   width: 270px;

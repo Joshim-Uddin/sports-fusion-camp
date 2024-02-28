@@ -2,12 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useUsers from "../Hooks/useUsers";
 
 const PopularClasses = () => {
   const [popularClasses, setPopularClasses] = useState();
+  const role = useUsers()
   useEffect(() => {
     fetch(
-      "https://b7a12-summer-camp-server-side-joshim-uddin-joshim-uddin.vercel.app/popularclasses"
+      "http://localhost:5000/popularclasses"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -40,9 +42,11 @@ const PopularClasses = () => {
                 <p>Students : {item.students}</p>
               </div>
               <div className="card-actions justify-center mt-2">
-                <Link to="/allclasses">
+                {role==='admin'?<Link to="/dashboard/classes">
+                  <button className="btn btn-primary">Manage Class</button>
+                </Link>:<Link to="/allclasses">
                   <button className="btn btn-primary">Book Now</button>
-                </Link>
+                </Link>}
               </div>
             </div>
           </div>
