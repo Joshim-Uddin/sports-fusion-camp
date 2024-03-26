@@ -15,17 +15,13 @@ const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const googleAuthProvider = new GoogleAuthProvider();
 const AuthProviders = ({ children }) => {
+  const [open, setOpen] = useState(true) //open or close the dashboard sidebar
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [selectedRoutes, setSelectedRoutes] = useState('')
   const axiosPublic = useAxiosPublic()
 
 
-  //change routes dynamically
-  const handleChangeRoutes = (route)=>{
-    setSelectedRoutes(route)
-  }
-
+  
   //signup new users
   const signUp = (email, password) => {
     setLoading(true);
@@ -87,7 +83,8 @@ const AuthProviders = ({ children }) => {
     logout,
     loading,
     googleSignIn,
-    handleChangeRoutes
+    open,
+    setOpen
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

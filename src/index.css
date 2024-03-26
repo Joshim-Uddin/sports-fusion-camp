@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .btn-custom{
   @apply bg-[#03203C] text-white hover:bg-[#8C4040] hover:transition-transform hover:scale-110
 }
@@ -55,8 +57,9 @@ body{
 }
 
 li{
-  @apply uppercase
+  @apply hover:text-lg py-3 origin-left duration-200 w-full ps-5
 }
+
 .count{
  background: linear-gradient(88deg, rgba(100, 0, 0, 1) 0%, rgba(153, 43, 1, 1) 59%, rgba(255, 170, 0, 1) 100%);
 }
