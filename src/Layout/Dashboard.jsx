@@ -1,5 +1,8 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import useUsers from "../Hooks/useUsers";
+import { FaHome, FaHouseUser, FaRegEdit, FaUserGraduate, FaUsers } from "react-icons/fa";
+import { MdClass, MdAdminPanelSettings, MdEngineering, MdAssignmentAdd, MdFeedback } from "react-icons/md";
+
 
 //TODO: private route
 const Dashboard = () => {
@@ -8,43 +11,43 @@ const Dashboard = () => {
     role === "admin" ? (
       <>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="">Admin Home</Link>
+          <Link to=""><MdAdminPanelSettings /> Admin Home</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="classes">Manage Classes</Link>
+          <Link to="classes"><MdClass /> Manage Classes</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link className="active:text-red-700" to="users">Manage Users</Link>
+          <Link className="active:text-red-700" to="users"><FaUsers /> Manage Users</Link>
         </li>
       </>
     ) : role === "instructor" ? (
       <>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="">Instructor Home</Link>
+          <Link to=""><MdEngineering /> Instructor Home</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="addclass">Add a Class</Link>
+          <Link to="addclass"><MdAssignmentAdd /> Add a Class</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="myclass">My Classes</Link>
+          <Link to="myclass"><MdClass /> My Classes</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="myclass">Enrolled Students</Link>
+          <Link to="myclass"><FaUserGraduate /> Enrolled Students</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="myclass">Feedback</Link>
+          <Link to="myclass"><MdFeedback /> Feedback</Link>
         </li>
       </>
     ) : (
       <>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="">User&apos;s Home</Link>
+          <Link to=""><FaHouseUser /> User&apos;s Home</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="selected">My Selected Classes</Link>
+          <Link to="selected"><MdClass /> My Classes</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="enrolled">Enrolled Classes</Link>
+          <Link to="enrolled"><FaRegEdit /> Enrolled Classes</Link>
         </li>
       </>
     );
@@ -52,7 +55,7 @@ const Dashboard = () => {
   const fixedOptions = (
     <>
       <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-        <Link className="" to="/">Home</Link>
+        <Link className="" to="/"><FaHome /> Home</Link>
       </li>
     </>
   );
