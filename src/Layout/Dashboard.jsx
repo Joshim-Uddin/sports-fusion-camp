@@ -4,12 +4,12 @@ import useUsers from "../Hooks/useUsers";
 //TODO: private route
 const Dashboard = () => {
   const role = useUsers();
-  const location = useLocation()
-  const defaultRoute = role==='admin'? '/admin-home': role==='instructor'? '/instructor-home': 'users-home'
-  console.log(defaultRoute)
   const options =
     role === "admin" ? (
       <>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
+          <Link to="">Admin Home</Link>
+        </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="classes">Manage Classes</Link>
         </li>
@@ -19,6 +19,9 @@ const Dashboard = () => {
       </>
     ) : role === "instructor" ? (
       <>
+        <li className="hover:bg-white hover:text-indigo-800 rounded-md">
+          <Link to="">Instructor Home</Link>
+        </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="addclass">Add a Class</Link>
         </li>
@@ -35,7 +38,7 @@ const Dashboard = () => {
     ) : (
       <>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
-          <Link to="users-home">User&apos;s Home</Link>
+          <Link to="">User&apos;s Home</Link>
         </li>
         <li className="hover:bg-white hover:text-indigo-800 rounded-md">
           <Link to="selected">My Selected Classes</Link>

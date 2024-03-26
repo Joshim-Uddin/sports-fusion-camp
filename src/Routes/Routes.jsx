@@ -21,7 +21,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import AdminRoutes from "./AdminRoutes";
 import PaymentFail from "../Shared/PaymentFail";
 import Pay from "../Components/Pay";
-import UserHome from "../Pages/Dashboard/Students/UserHome";
+import DashboardHome from "../Shared/DashboardHome";
+
 
 
 
@@ -65,11 +66,11 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
     children: [
       {
         path:'',
-        element: <UserHome />,
+        element: <DashboardHome/>,
       },
       {
         path: "classes",
@@ -94,11 +95,6 @@ const router = createBrowserRouter([
       {
         path: "myclass",
         element: <MyClasses />,
-      },
-
-      {
-        path: "users-home",
-        element: <UserHome />,
       },
       {
         path: "selected",
