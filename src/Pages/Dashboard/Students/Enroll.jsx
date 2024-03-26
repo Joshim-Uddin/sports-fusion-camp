@@ -1,6 +1,6 @@
 import React from "react";
 import useSelectedClasses from "../../../Hooks/useSelectedClasses";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
@@ -39,9 +39,12 @@ const Enroll = () => {
             <p className="text-lg">Price: $ {payable?.price}</p>
           </div>
           <div>
-            <button className="btn btn-custom" onClick={handlePayment}>
+            <Link to='/dashboard/pay'>
+            <button className="btn btn-custom">
               Pay
             </button>
+            </Link>
+            
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ const PopularClasses = () => {
                 {role==='admin'?<Link to="/dashboard/classes">
                   <button className="btn btn-primary">Manage Class</button>
                 </Link>:<Link to="/allclasses">
-                  <button className="btn btn-primary">Book Now</button>
+                  <button className="btn btn-primary bg-[#021a30]">Book Now</button>
                 </Link>}
               </div>
             </div>

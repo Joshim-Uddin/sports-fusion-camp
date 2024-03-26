@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
@@ -20,6 +20,12 @@ import PaymentSuccess from "../Pages/Dashboard/Students/PaymentSuccess";
 import PrivateRoutes from "./PrivateRoutes";
 import AdminRoutes from "./AdminRoutes";
 import PaymentFail from "../Shared/PaymentFail";
+import Pay from "../Components/Pay";
+import UserHome from "../Pages/Dashboard/Students/UserHome";
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -62,6 +68,10 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
+        path:'',
+        element: <UserHome />,
+      },
+      {
         path: "classes",
         element: (
           <AdminRoutes>
@@ -85,6 +95,11 @@ const router = createBrowserRouter([
         path: "myclass",
         element: <MyClasses />,
       },
+
+      {
+        path: "users-home",
+        element: <UserHome />,
+      },
       {
         path: "selected",
         element: <SelectedClasses />,
@@ -104,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "fail/:trans_Id",
         element: <PaymentFail />,
+      },
+      {
+        path: "pay",
+        element: <Pay />,
       },
     ],
   },

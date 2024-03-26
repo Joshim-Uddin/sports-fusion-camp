@@ -20,6 +20,7 @@ const AddClass = () => {
       seats: parseInt(seats),
       price: parseFloat(price),
       status: "pending",
+      students: 0
     };
     fetch(
       "http://localhost:5000/addclass",

@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
@@ -16,6 +17,14 @@ const googleAuthProvider = new GoogleAuthProvider();
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedRoutes, setSelectedRoutes] = useState('')
+  const axiosPublic = useAxiosPublic()
+
+
+  //change routes dynamically
+  const handleChangeRoutes = (route)=>{
+    setSelectedRoutes(route)
+  }
 
   //signup new users
   const signUp = (email, password) => {
@@ -48,26 +57,28 @@ const AuthProviders = ({ children }) => {
         const loggedUser = {
           email: currentUser.email,
         };
-        fetch(
-          "http://localhost:5000/jwt",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(loggedUser),
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("fusion-camp", data.token);
-          });
+        axiosPublic.post('/jwt', loggedUser)
+        // fetch(
+        //   "http://localhost:5000/jwt",
+        //   {
+        //     method: "POST",
+        //     headers: {
+        //       "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify(loggedUser),
+        //   }
+        // )
+          .then((res) => {
+            if(res.data.token){
+              localStorage.setItem("fusion-camp", res.data.token);
+            }
+          })
       } else {
         localStorage.removeItem("fusion-camp");
       }
     });
     return () => unsubscribe();
-  }, []);
+  }, [axiosPublic]);
 
   const authInfo = {
     user,
@@ -76,6 +87,7 @@ const AuthProviders = ({ children }) => {
     logout,
     loading,
     googleSignIn,
+    handleChangeRoutes
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
