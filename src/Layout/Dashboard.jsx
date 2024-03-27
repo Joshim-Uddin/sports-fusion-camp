@@ -1,17 +1,19 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import useUsers from "../Hooks/useUsers";
 import { HiBars3BottomLeft } from "react-icons/hi2";
-import { FaArrowLeft, FaHome, FaHouseUser, FaRegEdit, FaUserGraduate, FaUsers } from "react-icons/fa";
+import { FaArrowLeft, FaBars, FaHome, FaHouseUser, FaRegEdit, FaUserGraduate, FaUsers } from "react-icons/fa";
 import { MdClass, MdAdminPanelSettings, MdEngineering, MdAssignmentAdd, MdFeedback } from "react-icons/md";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
+import logo from "../assets/white.png"
 
 
 //TODO: private route
 const Dashboard = () => {
   const role = useUsers();
   const {open, setOpen} = useContext(AuthContext)
-  console.log(open)
+  const [clicked, setClicked] = useState(false)
+  console.log(clicked)
   const options =
     role === "admin" ? (
       <>
@@ -60,26 +62,46 @@ const Dashboard = () => {
   const fixedOptions = (
     <>
       <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
-        <Link className="flex  gap-x-3 items-center " to="/"><FaHome className="text-xl"/> <span className={`${!open?'hidden':'max-[600px]:hidden'}`}>Home</span></Link>
+        <Link className="flex  gap-x-3 items-center " to="/"><FaHome className="text-xl"/> <span className={`${!open?'hidden':''}`}>Home</span></Link>
       </li>
     </>
   );
   return (
-    <div className="drawer lg:drawer-open">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col gap-5 items-center ">
+    <div className="md:drawer lg:drawer-open">
+      <>
+      <div className={`md:hidden bg-indigo-800 duration-200 text-white flex justify-between items-center relative px-2`}>            
+                <Link to='/'>
+                <img src={logo} alt="sports fusion camp logo" className='w-24'  />
+                </Link>
+                <div className="flex flex-col relative">
+                <FaBars onClick={()=>setClicked(!clicked)}/>
+            
+                </div>
+                
+                
+        </div>
+        <ul className={`${!clicked?'flex flex-col items-center absolute  -mt-[500px] md:hidden': 'relative md:hidden bg-indigo-800 text-white -mt-2'}`}>
+            {options}
+            <div className="h-2 bg-blue-400"></div>
+          {fixedOptions}
+            </ul>
+      </>
+      <div className="md:drawer-content md:flex md:flex-col gap-5 items-center pt-5 ">
         {/* Page content here */}
        
         <Outlet/>
       </div>
 
-      <div className={`h-screen bg-indigo-800 duration-200  text-white relative ${open?'w-64':'w-20'}`}>
+      
+      <div className={`h-screen bg-indigo-800 duration-200 text-white max-[600px]:hidden relative ${open?'w-64':'w-20'}`}>
             <div className="absolute top-20 -right-4 cursor-pointer text-white text-xl p-2 w-10 h-10 flex  items-center outline outline-1 outline-white rounded-full bg-[#645DF6]" onClick={()=>setOpen(!open)}>
             {open?<FaArrowLeft />:<HiBars3BottomLeft />}
             </div>
-            <div className={`flex gap-x-5 justify-start items-center min-h-[60px] ${open?'bg-[#444677]':''} ps-5`}>
-                <img src='' alt="higher healthcare logo" className="w-10"  />
-            </div>
+            
+                <Link to='/'>
+                <img src={logo} alt="sports fusion camp logo" className={`${!open?'pt-2':'mx-auto pt-2'}`}  />
+                </Link>
+            
 
             <ul className="flex flex-col items-center pt-20">
             {options}

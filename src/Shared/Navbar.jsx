@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import useUsers from "../Hooks/useUsers";
 import useSelectedClasses from "../Hooks/useSelectedClasses";
+import logo from "../assets/white.png"
 
 
 const Navbar = () => {
@@ -42,7 +43,7 @@ console.log(role);
         ""
       )}
       {user ? (
-        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
           <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full" />
         </div>
       ) : (
@@ -60,9 +61,10 @@ console.log(role);
       <nav className="max-[600px]:hidden flex items-center justify-between h-28 lg:px-16 px-8 bg-[#03203C] text-white">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <h3 className="text-3xl font-semibold m-0 font-['Oleo']">
+            <img src={logo} alt="sports fusion logo" />
+            {/* <h3 className="text-3xl font-semibold m-0 font-['Oleo']">
               Sports Fusion Camp
-            </h3>
+            </h3> */}
           </Link>
         </div>
         <div className="flex items-center gap-4 text-lg">{navOptions}</div>

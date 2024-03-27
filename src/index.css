@@ -57,7 +57,7 @@ body{
 }
 
 li{
-  @apply hover:text-lg py-3 origin-left duration-200 w-full ps-5
+  @apply hover:text-lg my-2 py-2 origin-left duration-200 w-full ps-5 
 }
 
 .count{
