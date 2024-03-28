@@ -13,12 +13,11 @@ const Dashboard = () => {
   const role = useUsers();
   const {open, setOpen} = useContext(AuthContext)
   const [clicked, setClicked] = useState(false)
-  console.log(clicked)
   const options =
     role === "admin" ? (
       <>
         <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
-          <Link className="flex  gap-x-3 items-center " to=""><MdAdminPanelSettings className="text-xl"/> <span className={`${!open?'hidden':''}`}>Admin Home</span></Link>
+          <Link className="flex  gap-x-3 items-center " to=""><MdAdminPanelSettings className="text-xl"/> <span className={`${!open?'hidden':''}`}>Admin Dashboard</span></Link>
         </li>
         <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
           <Link className="flex  gap-x-3 items-center " to="classes"><MdClass className="text-xl"/> <span className={`${!open?'hidden':''}`}>Manage Classes</span></Link>
@@ -30,7 +29,7 @@ const Dashboard = () => {
     ) : role === "instructor" ? (
       <>
         <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
-          <Link className="flex  gap-x-3 items-center " to=""><MdEngineering className="text-xl"/> <span className={`${!open?'hidden':''}`}>Instructor Home</span></Link>
+          <Link className="flex  gap-x-3 items-center " to=""><MdEngineering className="text-xl"/> <span className={`${!open?'hidden':''}`}>Instructor Dashboard</span></Link>
         </li>
         <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
           <Link className="flex  gap-x-3 items-center " to="addclass"><MdAssignmentAdd className="text-xl"/> <span className={`${!open?'hidden':''}`}>Add a Class</span></Link>
@@ -48,7 +47,7 @@ const Dashboard = () => {
     ) : (
       <>
         <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
-          <Link className="flex  gap-x-3 items-center "  to=""><FaHouseUser className="text-xl"/> <span className={`${!open?'hidden':''}`}>User&apos;s Home</span></Link>
+          <Link className="flex  gap-x-3 items-center "  to=""><FaHouseUser className="text-xl"/> <span className={`${!open?'hidden':''}`}>Dashboard Home</span></Link>
         </li>
         <li className="hover:bg-[#7A0027] hover:text-white rounded-md">
           <Link className="flex  gap-x-3 items-center " to="selected"><MdClass className="text-xl"/> <span className={`${!open?'hidden':''}`}>My Classes</span></Link>
@@ -67,7 +66,7 @@ const Dashboard = () => {
     </>
   );
   return (
-    <div className="md:drawer lg:drawer-open">
+    <div className="md:drawer">
       <>
       <div className={`md:hidden bg-indigo-800 duration-200 text-white flex justify-between items-center relative px-2`}>            
                 <Link to='/'>
@@ -93,7 +92,7 @@ const Dashboard = () => {
       </div>
 
       
-      <div className={`h-screen bg-indigo-800 duration-200 text-white max-[600px]:hidden relative ${open?'w-64':'w-20'}`}>
+      <div className={`min-h-screen bg-[#03203C] duration-200 text-white max-[600px]:hidden relative ${open?'w-64':'w-20'}`}>
             <div className="absolute top-20 -right-4 cursor-pointer text-white text-xl p-2 w-10 h-10 flex  items-center outline outline-1 outline-white rounded-full bg-[#645DF6]" onClick={()=>setOpen(!open)}>
             {open?<FaArrowLeft />:<HiBars3BottomLeft />}
             </div>

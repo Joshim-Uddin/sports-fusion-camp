@@ -36,6 +36,7 @@
     "react-router-dom": "^6.12.0",
     "react-simple-captcha": "^9.0.2",
     "react-ts-typewriter": "^0.1.8-b",
+    "recharts": "^2.12.3",
     "sort-by": "^1.2.0",
     "stripe": "^12.13.0",
     "sweetalert2": "^11.7.12",

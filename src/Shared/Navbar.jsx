@@ -13,7 +13,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const role = useUsers();
   const [selected] = useSelectedClasses();
-console.log(role);
+// console.log(role);
   const handleSignOut = () => {
     logout()
       .then((res) => res)

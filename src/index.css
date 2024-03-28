@@ -57,9 +57,17 @@ body{
 }
 
 li{
-  @apply hover:text-lg my-2 py-2 origin-left duration-200 w-full ps-5 
+  @apply hover:text-lg my-2 py-2 origin-left duration-200 w-full ps-5 uppercase 
 }
-
+.statone{
+  background: linear-gradient(90deg, rgba(18, 215, 220, 1) 0%, rgba(238, 130, 238, 1) 100%);
+}
+.stattwo{
+  background: linear-gradient(90deg, rgba(220, 159, 18, 1) 0%, rgba(255, 0, 0, 1) 100%)
+}
+.statthree{
+  background: linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 0, 255, 1) 100%);
+}
 .count{
  background: linear-gradient(88deg, rgba(100, 0, 0, 1) 0%, rgba(153, 43, 1, 1) 59%, rgba(255, 170, 0, 1) 100%);
 }

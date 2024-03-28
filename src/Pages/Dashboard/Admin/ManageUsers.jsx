@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useEffect } from "react";
 import { useState } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 const ManageUsers = () => {
+  const axioSecure = useAxiosSecure()
+  const {user} = useContext(AuthContext)
+  console.log(user.email)
   const [users, setUsers] = useState([]);
   const [state, setState] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, [state]);
+    // fetch(`http://localhost:5000/users?email=${user?.email}`,
+    // {
+    //   method: "GET",
+    //   headers:{
+    //     "Content-Type": "application/json",
+    //     authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
+    //   }
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => setUsers(data));
+   const res= axioSecure.get(`/users?email=${user?.email}`)
+    console.log(res)
+  }, [state, user]);
   const makeAdmin = (email) => {
     const admin = { role: "admin" };
     fetch(
@@ -68,7 +81,7 @@ const ManageUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {users?.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>{user.name}</td>
