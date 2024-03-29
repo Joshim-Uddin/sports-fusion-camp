@@ -6,7 +6,6 @@ const EnrolledClasses = () => {
   const [enrolled, refetch] = useEnrolledClass();
   const {loading} = useContext(AuthContext)
   
-  console.log(enrolled)
   return <div className="overflow-x-auto">
   <h2 className="uppercase text-2xl font-semibold text-center mb-4">
    Enrolled Classes

@@ -15,19 +15,7 @@ const useEnrolledClass = () => {
     queryKey: ["enrolled", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/enrolledclass?email=${user?.email}`);
-      console.log(res.data)
       return res.data;
-      // const res = await fetch(
-      //   `http://localhost:5000/enrolledclass?email=${user?.email}`,
-      //   {
-      //     method: "GET",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       authorization: `bearer ${localStorage.getItem("fusion-camp")}`,
-      //     },
-      //   }
-      // );
-      // return res.json();
     },
   });
   return [enrolled, refetch];

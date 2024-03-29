@@ -13,7 +13,6 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const role = useUsers();
   const [selected] = useSelectedClasses();
-// console.log(role);
   const handleSignOut = () => {
     logout()
       .then((res) => res)
@@ -34,7 +33,7 @@ const Navbar = () => {
         <NavLink to="/dashboard">
         <div className="relative me-2">
           <div className="badge badge-secondary absolute bottom-5 left-2">
-            {selected.length}
+            {selected?.length}
           </div>
           <FaShoppingCart className="text-xl" />
         </div>

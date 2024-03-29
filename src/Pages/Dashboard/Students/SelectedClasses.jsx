@@ -35,7 +35,7 @@ const SelectedClasses = () => {
       }
     });
   };
-  
+  console.log(selected)
 
   return (
     <div className="overflow-x-auto">
