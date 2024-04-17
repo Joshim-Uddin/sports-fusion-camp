@@ -7,7 +7,7 @@ import CountDown from "../Countdown";
 import CampIdea from "../CampIdea";
 import Contact from "./Contact";
 import Sponsor from "./Sponsor";
-import LeaveReview from "./LeaveReview";
+import Review from "./ReviewSection";
 
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
       <PopularInstructors />
       <CounterSection />
       <Sponsor />
-      <LeaveReview />
+      <Review />
       <Contact />
     </div>
   );

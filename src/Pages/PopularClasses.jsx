@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useUsers from "../Hooks/useUsers";
 
+
 const PopularClasses = () => {
   const [popularClasses, setPopularClasses] = useState();
   const role = useUsers()
@@ -18,7 +19,13 @@ const PopularClasses = () => {
   }, []);
   return (
     <>
-    <div className="w-11/12 md:w-10/12 mx-auto my-12 py-3">
+    <div data-aos="fade-left" data-aos-offset="200"
+    data-aos-delay="0"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false"
+    data-aos-anchor-placement="top-center" className="w-11/12 md:w-10/12 mx-auto my-12 py-3">
       <h2 className="text-center md:border-b-8 border-b-4 border-amber-600 border-dashed md:w-5/12 mx-auto pb-5 text-3xl md:text-5xl font-['Caprasimo'] font-bold text-[#422C18] my-5">
         Our Popular Class
       </h2>

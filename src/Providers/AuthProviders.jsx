@@ -18,6 +18,8 @@ const AuthProviders = ({ children }) => {
   const [open, setOpen] = useState(true) //open or close the dashboard sidebar
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  //This state will control the theme day or night
+  const [night, setNight] = useState(false)
   const axiosPublic = useAxiosPublic()
 
 
@@ -84,7 +86,8 @@ const AuthProviders = ({ children }) => {
     loading,
     googleSignIn,
     open,
-    setOpen
+    setOpen,
+    night, setNight
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
